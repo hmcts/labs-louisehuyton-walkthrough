@@ -1,7 +1,8 @@
 import { fail } from 'assert';
+
 import axios, { AxiosResponse } from 'axios';
 
-const testUrl = process.env.TEST_URL || 'http://localhost:8080'
+const testUrl = process.env.TEST_URL || 'http://localhost:8080';
 
 describe('Smoke Test', () => {
   describe('Home page loads', () => {
