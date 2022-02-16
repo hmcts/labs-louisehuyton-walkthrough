@@ -1,6 +1,7 @@
 import { fail } from 'assert';
 
 import axios, { AxiosResponse } from 'axios';
+import { expect } from 'chai';
 
 const testUrl = process.env.TEST_URL || 'http://localhost:8080';
 
@@ -13,12 +14,9 @@ describe('Smoke Test', () => {
             'Accept-Encoding': 'gzip',
           },
         });
-        if (!response.data.includes('<h1 class="govuk-heading-xl">Default page template</h1>')) {
-          console.log(response.data);
-          throw new Error('Heading not present and/or correct');
-        }
-      } catch (e) {
-        fail(e);
+        expect(response.data).includes('<h1 class="govuk-heading-xl">Default page template</h1>');
+      } catch {
+        fail('Heading not present and/or correct');
       }
     });
   });
