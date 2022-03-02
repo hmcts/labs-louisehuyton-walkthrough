@@ -14,7 +14,3 @@ withPipeline(type, product, component) {
   }
 
 }
-
-after('Smoke Test - AKS sandbox') {
-    steps.archiveArtifacts allowEmptyArchive: true, artifacts: './smoke-output/reports/DefaultPageTemplate-result.xml'
-  }
